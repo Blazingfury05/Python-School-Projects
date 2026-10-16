@@ -1,23 +1,33 @@
 player1Wins = 0
 player2Wins = 0
 
+import random
+
 scoreboard = player1Wins , player2Wins
 
-
-winner = False
-token = "O"
 
 
 print("Hello, and welcome to Connect 4! what is Player 1's name?")
 player1 = input()
-print(f"Great to meet you {player1}, and who is Player2?")
-player2 = input()
-print(f"Great having you as well {player2}, now lets begin!")
-print("You will Press the number key associated with your desired collum to play your turn")
+
+print(f"Great to meet you {player1}!")
+print("How many humans are competeing?")
+gamemode = input()
+
+
+if gamemode == "2":
+     print("who is Player2? \n")
+     player2 = input()
+else:
+    player2 = "CPU"
+print(f"Great, now lets begin!")
+print("You will Press the number key associated with your desired spot to play your turn")
 
 
 
 while player1Wins < 2 and player2Wins < 2:
+    winner = False
+    token = "(-O)"
 
     print_board = [
         "[0] ", "[1]", " [2] ", "[3] ", "[4]", "[5] ", " [6] ",
@@ -36,15 +46,33 @@ while player1Wins < 2 and player2Wins < 2:
             print(print_board[35], print_board[36], print_board[37], print_board[38], print_board[39], print_board[40], print_board[41])
     
     for turn in range(42):
-        if token == "O":
-            token = "X"
-    else:
-        token = "O"
+        if token == "(-O)":
+            token = "(-X)"
+        else:
+            token = "(-O)"
 
-    printboard(print_board)
-    
-    print("Choose a slot, slots are chosen with numbers 1, 2, 3, 4, 5, 6, 7, \n")
-    slot = int(input("slot: "))
+        printboard(print_board)
+
+        if gamemode != "2" and token == "(-O)":
+            print("\n\n")
+            availableCells = []
+
+            for i in range(7):
+                availableCells.append(i)
+
+            slot = random.choice(availableCells)
+        else:
+            print("Choose a slot, slots are chosen with numbers 0, 1, 2, 3, 4, 5, 6")
+            slot = int(input("slot: "))
+
+        for row in range(5, -1, -1):
+            position = slot + (row * 7)
+
+            if print_board[position].strip("[] ") == str(position):
+                print_board[position] = token
+                break
+
+        
         
 
 

@@ -7,7 +7,9 @@ Paper = 2
 
 print('Hello,\n \t Welcome, \n \t \t Legendary Challengers!!!')
 
-for loop in range(3):
+play_again = True
+
+while play_again:
     print("\n \n Choose your Weapons!!!")
 
 ##players 1 and 2 are input values to track independant
@@ -60,4 +62,11 @@ for loop in range(3):
     elif (player1 == 'scissors' or player1 == "Scissors" or player1 == 's' or player1 == "S") and (player2 == 'rock' or player2 == "Rock" or player2 == 'r' or player2 == "R"):
         print('Hard Rock crushes thin steel')
     
-print('\n \n \t The sacred match count has been reached')
+    print('\n \n \t The sacred match count has been reached')    
+    print("\n \n \t Would you like to play again? (yes/no)")
+    answer = input().lower()
+            
+    if answer == "no" or answer == "n" or answer == "No" or answer == "N" or answer == "Nah" or answer == "nah" or answer == "go to hell":
+        play_again = False
+            
+print(f"\n Thank you, \n \tI hope you have enjoyed your time \n{player1} \n and \n {player2} \n Have a wonderful day!")

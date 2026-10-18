@@ -125,4 +125,7 @@ while play_again:
     if answer == "no" or answer == "n" or answer == "No" or answer == "N" or answer == "Nah" or answer == "nah" or answer == "go to hell":
         play_again = False
 
-print(f"\n Thank you, \n \tI hope you have enjoyed your time \n{player1} \n and \n {player2} \n Have a wonderful day!")
+print("The current score is ", total_board)
+print("\n\n")
+
+print(f"\n Thank you, \n  \tI hope you have enjoyed your time playing \n {player1} \n and \n {player2}\nHave a wonderful day!")
